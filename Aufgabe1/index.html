@@ -2,6 +2,8 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Elias Englen">
+    <meta name="description" content="Travelplaner">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NewYork Traveler</title>
@@ -12,16 +14,75 @@
         <span>
             <a href="index.html">Home</a>
             <a href="events.html">Events</a>
+            <a href="#reviews">Reviews</a>
         </span>
     </nav>
     <main>
         <video width="100%" src="static/videos/cover.mp4" autoplay></video>
         <div>
-        <h1>Welcome to NewYork</h1>
+        <h2>Welcome to NewYork</h2>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> 
         </div>
-        <img width="100%" src="static/images/newyork_1.jpg">
+        <div>
+            <img width="100%" src="static/images/newyork_1.jpg" alt="Timesquare Image">
+            <h2>Timesquare</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea <strong>takimata sanctus</strong> est Lorem ipsum dolor sit amet.</p>
+        </div>
+        <hr>
+        <div id="reviews">
+            <h3>What other travelers said</h3>
+            <figcaption>
+                <cite>"It was a beautiful trip"</cite>
+                <span><strong>- Irma Braun</strong></span>
+            </figcaption>
+            <br>
+            <figcaption>
+                <cite>"It was a beautiful trip"</cite>
+                <span><strong>- Irma Braun</strong></span>
+            </figcaption>
+            <br>
+            <figcaption>
+                <cite>"It was a beautiful trip"</cite>
+                <span><strong>- Irma Braun</strong></span>
+            </figcaption>
+        </div>
+        <hr>
+        <div>
+            <h3>Book now</h3>
+                <form>
+                    <div>
+                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Lastname">
+                    </div>
+                        <input type="text" placeholder="Street">
+                        <input type="number" placeholder="Postcode">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="email">
+                        <input type="phone" placeholder="phone" value="+1">
+                    </div>
+                    <div>
+                        <span>
+                            <span><strong>Pick a date</strong></span>
+                            <input type="date">
+                        </span>
+                        <span>
+                            <span><strong>How many Persons?</strong></span>
+                            <input type="number">
+                        </span>
+                    </div>
+                    <div>
+                        <button>Book Now</button>
+                        <button type="reset">Reset Order</button>
+                    </div>
+                </form>
+                <hr>
+        </div>
     </main>
-    <footer></footer>
+    <footer>
+        <a href="#">AGB</a>
+        <a href="#">Imprint</a>
+        <a href="#">Privacy Policy</a>
+    </footer>
 </body>
 </html>
