@@ -59,6 +59,15 @@ nav a:hover {
   border-radius: 5px;
 }
 
+nav a:hover::after {
+  position: absolute;
+  content: "";
+  top: 10px;
+  left: 25%;
+  right: 25%;
+  border: 1px solid #4e5370;
+}
+
 .video-container {
   margin-top: 70px;
   display: -webkit-box;
@@ -218,10 +227,12 @@ form .button-red:hover {
 }
 
 .event-container {
+  margin: 0 10px;
   position: relative;
   width: 300px;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
+  overflow: hidden;
+  background-image: url("../static/images/book.jpg");
+  background-size: cover;
 }
 
 .event-container span {
@@ -231,9 +242,37 @@ form .button-red:hover {
   font-size: 25px;
   bottom: 30px;
   left: 30px;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
-.event-container .event-container:hover span {
+.event-container2 {
+  margin: 0 10px;
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  background-image: url("../static/images/event2.jpg");
+  background-size: cover;
+}
+
+.event-container2 span {
+  position: absolute;
+  color: #fff;
+  font-weight: 600;
+  font-size: 25px;
+  bottom: 30px;
+  left: 30px;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.event-container:hover span {
+  left: 50px;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.event-container2:hover span {
   left: 50px;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;

@@ -44,6 +44,14 @@ nav {
         transition: .3s ease-in-out;
         border-radius: 5px;
     }
+    a:hover::after {
+        position: absolute;
+        content: "";
+        top: 10px;
+        left: 25%;
+        right: 25%;
+        border: 1px solid #4e5370
+    }
 }
 
 
@@ -154,9 +162,12 @@ form {
 }
 
 .event-container {
+    margin: 0 10px;
     position: relative;
     width: 300px;
-    transition: .3s ease-in-out;
+    overflow: hidden;
+    background-image: url('../static/images/book.jpg');
+    background-size: cover;
     span {
         position: absolute;
         color: #fff;
@@ -164,11 +175,36 @@ form {
         font-size: 25px;
         bottom: 30px;
         left: 30px;
-    }
-    .event-container:hover span {
-        left: 50px;
         transition: .3s ease-in-out;
     }
+}
+
+.event-container2 {
+    margin: 0 10px;
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+    background-image: url('../static/images/event2.jpg');
+    background-size: cover;
+    span {
+        position: absolute;
+        color: #fff;
+        font-weight: 600;
+        font-size: 25px;
+        bottom: 30px;
+        left: 30px;
+        transition: .3s ease-in-out;
+    }
+}
+
+.event-container:hover span {
+    left: 50px;
+    transition: .3s ease-in-out;
+}
+
+.event-container2:hover span {
+    left: 50px;
+    transition: .3s ease-in-out;
 }
 
 footer {
