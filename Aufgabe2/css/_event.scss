@@ -1,0 +1,38 @@
+
+
+table {
+    width: 50vw;
+    text-align: center;
+}
+
+td {
+    padding: 10px 0px;
+}
+
+tr:nth-child(even){
+    background-color: $secondary-color;
+}
+
+th {
+    padding: 10px 0;
+    background-color: #4e5370;
+    color: $secondary-color
+}
+
+.contact {
+    flex-direction: column !important;
+}
+
+.contact-person-container {
+    display: flex;
+    flex-direction: column;
+    div {
+        padding: 10px 20px;
+        strong {
+            margin: 0px 5px 0px 0px;
+        }
+    }
+    div:hover::before {
+        content: "> "
+    }
+}

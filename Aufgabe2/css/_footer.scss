@@ -1,0 +1,9 @@
+footer {
+    display: flex;
+    align-self: center;
+    a {
+        text-decoration: none;
+        padding: 20px 10px;
+        color: $primary-color;
+    }
+}

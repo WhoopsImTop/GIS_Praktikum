@@ -1,0 +1,20 @@
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.bottom-container {
+    align-self: flex-end;
+}
+
+.gray {
+    background-color: $secondary-color;
+}
