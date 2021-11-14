@@ -73,7 +73,7 @@ function hoechsterTicketPreis(Array : any[][]) {
   }
   return hoechsterPreis;
 }
-console.log("Höchster Preis: " + hoechsterTicketPreis(events));
+console.log("c): Höchster Preis: " + hoechsterTicketPreis(events));
 
 // Lösung d) ...
 function kuenstlerSuche(array : any[][], name : String) {
@@ -82,12 +82,12 @@ function kuenstlerSuche(array : any[][], name : String) {
   })
 }
 
-kuenstlerSuche([
+  kuenstlerSuche([
   ["Mark Forster", 12.30],
   ["Metallika", 13.30],
   ["ACDC", 23.40],
   ["Eminem", 14.30]
-], "ACDC")
+  ], "ACDC")
 
 // Lösung e) ...
 function fakultaet(n : number) {
@@ -100,18 +100,64 @@ function fakultaet(n : number) {
   return current
 }
 
-console.log("Fakultät: " + fakultaet(6));
+console.log("e): Fakultät: " + fakultaet(6));
 
 // Lösung f) ...
 function teilbarDurchDrei(n : number) {
-  for(let i = 0; i <= n; i++) {
+  console.log('f):')
+  for(let i = 1; i <= n; i++) {
     if(i % 3 == 0) {
       console.log(i)
     }
   }
 }
-console.log(teilbarDurchDrei(100))
+teilbarDurchDrei(100)
 
 // Lösung g) ...
+class ConcertEvent {
+  private interpret: string;
+  private price: number = 0; // default Wert
+
+  //Konstruktor
+  constructor(interpret: string, price: number) {
+    this.interpret = interpret;
+    this.price = price
+  }
+
+  show(): string {
+    return this.interpret + `, ` + this.price;
+  }
+}
+
+let p: ConcertEvent = new ConcertEvent("Pink Floyd", 15.9);
+console.log('g): ' + p.show());
+
 
 // Lösung h) ...
+class ConcertEvents {
+  private interpret: string;
+  private price: number = 0; // default Wert
+  private eventArray : any[] = []
+
+  //Konstruktor
+  constructor(interpret: string, price: number) {
+    this.interpret = interpret;
+    this.price = price
+  }
+
+  addEvent(interpret: string, price: number) {
+    this.eventArray.push(new ConcertEvent(interpret, price))
+  }
+
+  show() {
+    for(let i : number = 0; i < this.eventArray.length; i++) {
+      return this.eventArray[i];
+    }
+  }
+}
+
+let concert: ConcertEvents = new ConcertEvents("Pink Floyd", 15.9);
+concert.addEvent("Metallica", 20.1);
+concert.addEvent("ACDC", 23.40);
+concert.addEvent("Eminem", 14.30);
+console.log('h): ' + concert.show());

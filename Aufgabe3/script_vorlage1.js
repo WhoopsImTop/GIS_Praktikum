@@ -60,7 +60,7 @@ function hoechsterTicketPreis(Array) {
     }
     return hoechsterPreis;
 }
-console.log("Höchster Preis: " + hoechsterTicketPreis(events));
+console.log("c): Höchster Preis: " + hoechsterTicketPreis(events));
 // Lösung d) ...
 function kuenstlerSuche(array, name) {
     array.map(function (event) {
@@ -83,15 +83,53 @@ function fakultaet(n) {
     }
     return current;
 }
-console.log("Fakultät: " + fakultaet(6));
+console.log("e): Fakultät: " + fakultaet(6));
 // Lösung f) ...
 function teilbarDurchDrei(n) {
-    for (var i = 0; i <= n; i++) {
+    console.log('f):');
+    for (var i = 1; i <= n; i++) {
         if (i % 3 == 0) {
             console.log(i);
         }
     }
 }
-console.log(teilbarDurchDrei(100));
+teilbarDurchDrei(100);
 // Lösung g) ...
+var ConcertEvent = /** @class */ (function () {
+    //Konstruktor
+    function ConcertEvent(interpret, price) {
+        this.price = 0; // default Wert
+        this.interpret = interpret;
+        this.price = price;
+    }
+    ConcertEvent.prototype.show = function () {
+        return this.interpret + ", " + this.price;
+    };
+    return ConcertEvent;
+}());
+var p = new ConcertEvent("Pink Floyd", 15.9);
+console.log('g): ' + p.show());
 // Lösung h) ...
+var ConcertEvents = /** @class */ (function () {
+    //Konstruktor
+    function ConcertEvents(interpret, price) {
+        this.price = 0; // default Wert
+        this.eventArray = [];
+        this.interpret = interpret;
+        this.price = price;
+    }
+    ConcertEvents.prototype.addEvent = function (interpret, price) {
+        this.eventArray.push(new ConcertEvent(interpret, price));
+    };
+    ConcertEvents.prototype.show = function () {
+        for (var i = 0; i < this.eventArray.length; i++) {
+            return this.eventArray[i];
+        }
+    };
+    return ConcertEvents;
+}());
+var concert = new ConcertEvents("Pink Floyd", 15.9);
+concert.addEvent("Metallica", 20.1);
+concert.addEvent("ACDC", 23.40);
+concert.addEvent("Eminem", 14.30);
+console.log('h): ' + concert.show());
