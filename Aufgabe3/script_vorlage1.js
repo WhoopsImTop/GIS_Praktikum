@@ -109,6 +109,7 @@ var ConcertEvent = /** @class */ (function () {
 }());
 var p = new ConcertEvent("Pink Floyd", 15.9);
 console.log('g): ' + p.show());
+console.log("---");
 // Lösung h) ...
 var ConcertEvents = /** @class */ (function () {
     //Konstruktor
@@ -117,19 +118,27 @@ var ConcertEvents = /** @class */ (function () {
         this.eventArray = [];
         this.interpret = interpret;
         this.price = price;
+        this.addEvent(interpret, price);
     }
     ConcertEvents.prototype.addEvent = function (interpret, price) {
         this.eventArray.push(new ConcertEvent(interpret, price));
     };
     ConcertEvents.prototype.show = function () {
+        console.log();
         for (var i = 0; i < this.eventArray.length; i++) {
-            return this.eventArray[i];
+            console.log(this.eventArray[i].interpret + ", " + this.eventArray[i].price);
         }
     };
     return ConcertEvents;
 }());
 var concert = new ConcertEvents("Pink Floyd", 15.9);
 concert.addEvent("Metallica", 20.1);
-concert.addEvent("ACDC", 23.40);
-concert.addEvent("Eminem", 14.30);
-console.log('h): ' + concert.show());
+concert.addEvent("Michael Bublé", 11.1);
+concert.addEvent("Dire Straits", 12.2);
+concert.addEvent("Metallica", 20.1);
+concert.addEvent("Mariah Carey", 1.1);
+concert.addEvent("Cat Stevens", 12.99);
+concert.addEvent("Mark Forster", 2.1);
+concert.addEvent("Helene Fischer", 3.1);
+concert.addEvent("Bee Gees", 25.2);
+concert.show();
