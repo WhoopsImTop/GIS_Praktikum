@@ -51,3 +51,9 @@ function renderList() {
         eventTable_2.innerHTML = "<tr><td>No events found</td><td></td><td></td><td></td></tr>";
     }
 }
+function sortByDate() {
+    eventArray.sort(function (a, b) {
+        return a.dateAndTime.getTime() - b.dateAndTime.getTime();
+    });
+    renderList();
+}

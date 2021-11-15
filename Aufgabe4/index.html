@@ -24,15 +24,16 @@
                 </div>
             </div>
             <div class="row my-4">
-                <div class="col">
+                <div class="col" id="dateSorter">
                     <label for="eventDate">Date and Time</label>
                     <input id="dateAndTime" type="datetime-local" id="eventDate" class="form-control">
                 </div>
             </div>
-            <button onclick="formValidator()" disabled="true" id="eventBtn" type="button" id="submit" class="btn btn-primary">Enter Event</button>
+            <button onclick="formValidator()" id="eventBtn" type="button" id="submit" class="btn btn-primary">Enter Event</button>
         </form>
 
         <h2 class="mt-5 mb-3">Event Table</h2>
+        <button class="btn btn-primary my-2" onclick="sortByDate()">Sort by Date</button>
         <table>
             <th>Interpret</th>
             <th>Price</th>
