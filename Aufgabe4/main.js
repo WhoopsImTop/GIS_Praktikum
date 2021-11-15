@@ -41,7 +41,7 @@ function renderList() {
     if (eventArray.length > 0) {
         var table = "";
         for (var i = 0; i < eventArray.length; i++) {
-            table += "<tr><td>" + eventArray[i].interpret + "</td><td>" + eventArray[i].price + "</td><td>" + eventArray[i].dateAndTime + "</td><td><button class='btn btn-danger' onclick='removeEvent(" + i + ")'>Remove</button></td></tr>";
+            table += "<tr><td>" + eventArray[i].interpret + "</td><td>" + eventArray[i].price + "</td><td>" + eventArray[i].dateAndTime.getDate() + '.' + eventArray[i].dateAndTime.getMonth() + '.' + eventArray[i].dateAndTime.getFullYear() + ' at ' + eventArray[i].dateAndTime.getHours() + ':' + eventArray[i].dateAndTime.getMinutes() + "</td><td><button class='btn btn-danger' onclick='removeEvent(" + i + ")'>Remove</button></td></tr>";
         }
         var eventTable_1 = document.getElementById("eventTable");
         eventTable_1.innerHTML = table;
