@@ -27,7 +27,7 @@ table td {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  top: 30%;
+  top: 20vh;
   margin: 0 auto;
   width: 550px;
   height: 400px;
