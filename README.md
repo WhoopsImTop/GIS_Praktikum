@@ -24,3 +24,9 @@ Repo Link: https://github.com/WhoopsImTop/GIS_Praktikum/tree/main/Aufgabe3
 Github Pages: https://whoopsimtop.github.io/GIS_Praktikum/Aufgabe4/index.html
 
 Repo Link: https://github.com/WhoopsImTop/GIS_Praktikum/tree/main/Aufgabe4
+
+## Aufgabe 5
+
+Github Pages: https://whoopsimtop.github.io/GIS_Praktikum/Aufgabe5/index.html
+
+Repo Link: https://github.com/WhoopsImTop/GIS_Praktikum/tree/main/Aufgabe5

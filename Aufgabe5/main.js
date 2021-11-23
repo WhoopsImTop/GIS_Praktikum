@@ -30,21 +30,40 @@ var eventTable = /** @class */ (function () {
     };
     return eventTable;
 }());
-function formValidator() {
-    if (interpret.value == "") {
-        interpret.style.borderColor = "red";
-    }
-    else if (price.value == "" || isNaN(Number(price.value))) {
-        price.style.borderColor = "red";
-    }
-    else if (dateAndTime.value == "" || dateAndTime.value == "YYYY-MM-DD hh:mm") {
-        dateAndTime.style.borderColor = "red";
+function formValidator(edit) {
+    var editActive = edit || false;
+    if (editActive) {
+        var error = false;
+        if (editInterpret.value == "") {
+            editInterpret.style.borderColor = "red";
+            error = true;
+        }
+        else if (editPrice.value == "" || isNaN(Number(price.value))) {
+            editPrice.style.borderColor = "red";
+            error = true;
+        }
+        else if (editDateAndTime.value == "" || dateAndTime.value == "YYYY-MM-DD hh:mm") {
+            editDateAndTime.style.borderColor = "red";
+            error = true;
+        }
+        return error;
     }
     else {
-        var newEvent = new eventTable(interpret.value, Number(price.value), dateAndTime.value);
-        newEvent.addToList();
-        writeToLocalStorage();
-        renderList();
+        if (interpret.value == "") {
+            interpret.style.borderColor = "red";
+        }
+        else if (price.value == "" || isNaN(Number(price.value))) {
+            price.style.borderColor = "red";
+        }
+        else if (dateAndTime.value == "" || dateAndTime.value == "YYYY-MM-DD hh:mm") {
+            dateAndTime.style.borderColor = "red";
+        }
+        else {
+            var newEvent = new eventTable(interpret.value, Number(price.value), dateAndTime.value);
+            newEvent.addToList();
+            writeToLocalStorage();
+            renderList();
+        }
     }
 }
 function writeToLocalStorage() {
@@ -105,13 +124,15 @@ function editEvent(i) {
     editDateAndTime.value = eventArray[i].dateAndTime;
 }
 function editFromList() {
-    eventArray[currentEditEvent].interpret = editInterpret.value;
-    eventArray[currentEditEvent].price = Number(editPrice.value);
-    eventArray[currentEditEvent].dateAndTime = editDateAndTime.value;
-    renderList();
-    writeToLocalStorage();
-    currentEditEvent = 0;
-    closePopup();
+    if (!formValidator(true)) {
+        eventArray[currentEditEvent].interpret = editInterpret.value;
+        eventArray[currentEditEvent].price = Number(editPrice.value);
+        eventArray[currentEditEvent].dateAndTime = editDateAndTime.value;
+        renderList();
+        writeToLocalStorage();
+        currentEditEvent = 0;
+        closePopup();
+    }
 }
 function closePopup() {
     editPopupElement.style.display = "none";
