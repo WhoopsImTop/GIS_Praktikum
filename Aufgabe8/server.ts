@@ -8,12 +8,13 @@ const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
 
 // create Database Connection
+let collection: any;
 async function connect (){
 await client.connect();
 console.log("Connected successfully to server");
+collection = client.db().collection('collection');
 }
 connect();
-const collection = client.db().collection('collection');
 
 const server: http.Server = http.createServer(
   async (request: http.IncomingMessage, response: http.ServerResponse) => {
@@ -33,16 +34,18 @@ const server: http.Server = http.createServer(
           await request.on("data", (data) => {
             body += data;
           });
-          try {
-          let result = await collection.insertOne({
-            interpret: JSON.parse(body).interpret,
-            price: JSON.parse(body).price,
-            dateAndTime: JSON.parse(body).dateAndTime
-          });
-          response.end(JSON.stringify(result));
-          } catch (error) {
-            response.end(JSON.stringify(error));
-          }
+          request.on("end", async () => {
+            try {
+              let result = await collection.insertOne({
+                interpret: JSON.parse(body).interpret,
+                price: JSON.parse(body).price,
+                dateAndTime: JSON.parse(body).dateAndTime
+              });
+              response.end(JSON.stringify(result));
+              } catch (error) {
+                response.end(JSON.stringify(error));
+              }
+          })
         }
         break;
       default:

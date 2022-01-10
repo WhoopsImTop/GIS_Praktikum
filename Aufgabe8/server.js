@@ -43,6 +43,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017';
 var client = new MongoClient(url);
 // create Database Connection
+var collection;
 function connect() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -51,15 +52,15 @@ function connect() {
                 case 1:
                     _a.sent();
                     console.log("Connected successfully to server");
+                    collection = client.db().collection('collection');
                     return [2 /*return*/];
             }
         });
     });
 }
 connect();
-var collection = client.db().collection('collection');
 var server = http.createServer(function (request, response) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, _a, result, body_1, result, error_1;
+    var url, _a, result, body_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -71,16 +72,16 @@ var server = http.createServer(function (request, response) { return __awaiter(v
                 switch (_a) {
                     case "/concertEvents": return [3 /*break*/, 1];
                 }
-                return [3 /*break*/, 9];
+                return [3 /*break*/, 6];
             case 1:
                 if (!(request.method === "GET")) return [3 /*break*/, 3];
                 return [4 /*yield*/, collection.find({}).toArray()];
             case 2:
                 result = _b.sent();
                 response.end(JSON.stringify(result));
-                return [3 /*break*/, 8];
+                return [3 /*break*/, 5];
             case 3:
-                if (!(request.method === "POST")) return [3 /*break*/, 8];
+                if (!(request.method === "POST")) return [3 /*break*/, 5];
                 request.setEncoding("utf8");
                 body_1 = "";
                 return [4 /*yield*/, request.on("data", function (data) {
@@ -88,27 +89,35 @@ var server = http.createServer(function (request, response) { return __awaiter(v
                     })];
             case 4:
                 _b.sent();
+                request.on("end", function () { return __awaiter(void 0, void 0, void 0, function () {
+                    var result, error_1;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                _a.trys.push([0, 2, , 3]);
+                                return [4 /*yield*/, collection.insertOne({
+                                        interpret: JSON.parse(body_1).interpret,
+                                        price: JSON.parse(body_1).price,
+                                        dateAndTime: JSON.parse(body_1).dateAndTime
+                                    })];
+                            case 1:
+                                result = _a.sent();
+                                response.end(JSON.stringify(result));
+                                return [3 /*break*/, 3];
+                            case 2:
+                                error_1 = _a.sent();
+                                response.end(JSON.stringify(error_1));
+                                return [3 /*break*/, 3];
+                            case 3: return [2 /*return*/];
+                        }
+                    });
+                }); });
                 _b.label = 5;
-            case 5:
-                _b.trys.push([5, 7, , 8]);
-                return [4 /*yield*/, collection.insertOne({
-                        interpret: JSON.parse(body_1).interpret,
-                        price: JSON.parse(body_1).price,
-                        dateAndTime: JSON.parse(body_1).dateAndTime
-                    })];
+            case 5: return [3 /*break*/, 7];
             case 6:
-                result = _b.sent();
-                response.end(JSON.stringify(result));
-                return [3 /*break*/, 8];
-            case 7:
-                error_1 = _b.sent();
-                response.end(JSON.stringify(error_1));
-                return [3 /*break*/, 8];
-            case 8: return [3 /*break*/, 10];
-            case 9:
                 response.statusCode = 404;
-                _b.label = 10;
-            case 10:
+                _b.label = 7;
+            case 7:
                 response.end();
                 return [2 /*return*/];
         }
